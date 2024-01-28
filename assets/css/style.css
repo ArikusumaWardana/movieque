@@ -1,0 +1,565 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style: none;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #fff;
+    --main-color: #ff2c1f;
+    --text-color: #020307;
+}
+
+body {
+    background: var(--text-color) !important;
+    color: var(--bg-color) !important;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--text-color) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color) !important;
+    transition: 0.3s all linear;
+    -webkit-transition: 0.3s all linear;
+    -moz-transition: 0.3s all linear;
+    -ms-transition: 0.3s all linear;
+    -o-transition: 0.3s all linear;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff1115;
+}
+
+
+/* Navbar */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 100px;
+    transition: 0.2s all linear;
+    -webkit-transition: 0.2s all linear;
+    -moz-transition: 0.2s all linear;
+    -ms-transition: 0.2s all linear;
+    -o-transition: 0.2s all linear;
+}
+
+header.bg-nav {
+    background-color: var(--text-color) !important;
+    border-bottom: 1px solid var(--main-color) !important;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--bg-color) !important;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.logo .bx {
+    font-size: 24px;
+    color: var(--main-color) !important;
+}
+
+.navbar-main {
+    display: flex;
+    column-gap: 5rem;
+}
+
+.navbar-main ul {
+    margin: 0 !important;
+}
+
+.navbar-main li {
+    position: relative;
+}
+
+
+.navbar-main a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bg-color) !important;
+}
+
+.navbar-main a::after {
+    content: '';
+    width: 0;
+    height: 2px !important; 
+    position: absolute;
+    background: var(--main-color) !important;
+    left: 0;
+    bottom: -4px !important;
+    transition: 0.2s all linear;
+    -webkit-transition: 0.2s all linear;
+    -moz-transition: 0.2s all linear;
+    -ms-transition: 0.2s all linear;
+    -o-transition: 0.2s all linear;
+}
+
+.navbar-main a:hover::after, 
+.navbar-main .home-active::after,
+.navbar-main a:focus::after {
+    width: 100%;
+}
+
+#menu-icon {
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000001;
+    display: none;
+}
+
+.btn-main {
+    padding: 0.6rem 1.4rem;
+    background-color: var(--main-color) !important;
+    color: var(--bg-color) !important;
+    font-weight: 400;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    transition: 0.4s all linear;
+    -webkit-transition: 0.4s all linear;
+    -moz-transition: 0.4s all linear;
+    -ms-transition: 0.4s all linear;
+    -o-transition: 0.4s all linear;
+}
+
+.btn-main:hover {
+    background-color: #ff1115;
+}
+
+.dropdown-none {
+    display: flex !important;
+    
+}
+
+.dropdown-main {
+    width: 165px !important;
+    position: absolute;
+    width: fit-content;
+    display: none;
+    flex-direction: column;
+    top: 68px;
+    right: 75px;
+    background-color: var(--text-color) !important;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 15px 20px 20px 20px;
+    border: 1px solid var(--main-color) !important;
+}
+
+.name-drop {
+    border-bottom: 1px solid var(--main-color) !important;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.drowdown-link {
+    color: var(--bg-color) !important;
+    padding: 5px;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -ms-transition: 0.1s;
+    -o-transition: 0.1s;
+}
+
+.drowdown-link:hover {
+    color: var(--main-color) !important;
+}
+
+.btn-logout {
+    background-color: transparent !important;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* End Navbar */
+
+
+/* Start Jumbotron */
+section {
+    padding: 4.5rem 0 1.5rem;
+}
+
+.jumbotron-section {
+    margin-top: -72px;
+}
+
+.jumbotron {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 640px;
+}
+
+.swiper-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(2, 3, 6, 0.7) !important;
+    z-index: 1;
+}
+
+.swiper-img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    z-index: 0;
+}
+
+.swiper-text {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    text-align: left;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.swiper-img .swiper-text a {
+    display: inline-block;
+}
+
+.swiper-pagination-bullet {
+    width: 6px !important;
+    height: 6px !important;
+    opacity: 1 !important;
+    background: var(--bg-color) !important;
+    border-radius: 0.2rem !important;
+    -webkit-border-radius: 0.2rem !important;
+    -moz-border-radius: 0.2rem !important;
+    -ms-border-radius: 0.2rem !important;
+    -o-border-radius: 0.2rem !important;
+}
+
+.swiper-pagination-bullet-active {
+    width: 1rem !important;
+    background: var(--main-color) !important;
+}
+
+.swiper-text {
+    z-index: 1000;
+    padding: 0 130px;
+}
+
+.swiper-text span {
+    font-weight: 500;
+    color: var(--bg-color) !important;
+    text-transform: uppercase;
+}
+
+.swiper-text h1 {
+    color: var(--bg-color) !important;
+    font-weight: 700;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+/* End Jumbotron */
+
+
+/* Start Popular And New Movies */
+
+
+.heading-new,
+.heading-popular,
+.heading-allmovies,
+.line {
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--main-color) !important;
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new-container,
+.popular-container,
+.allmovies-container {
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,auto)) ;
+    gap: 1rem;
+    margin-top: 2rem; 
+}
+/* 
+.card-main {
+    width: 181px;
+} */
+
+.card-main .card-img {
+    width: 100%;
+    height: 270px;
+}
+
+.card-main .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.1s all linear;
+    -webkit-transition: 0.1s all linear;
+    -moz-transition: 0.1s all linear;
+    -ms-transition: 0.1s all linear;
+    -o-transition: 0.1s all linear;
+}
+
+.card-main .new-img img:hover {
+    transform: translateY(-4px);
+    -webkit-transform: translateY(-4px);
+    -moz-transform: translateY(-4px);
+    -ms-transform: translateY(-4px);
+    -o-transform: translateY(-4px);
+}
+
+.card-main h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.card-main span {
+    font-size: 13px;
+}
+
+.link-movies {
+    color: var(--bg-color) !important;
+}
+
+.link-movies:active {
+    color: var(--main-color) !important;
+}
+
+.popular-container {
+    display: grid; 
+    gap: 1rem;
+    max-width: 968px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+}
+
+.popular-container .card .card-img img:hover {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+}
+/* End Popular And New Movies */
+
+
+/* Start All Movies */
+
+.search-movies {
+    background: #0f0f0f;
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem; 
+}
+
+.input-search {
+    font-size: 13px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    width: 300px;
+    background: #0f0f0f;
+    outline: none;
+    border: 1px solid var(--main-color);
+    color: var(--bg-color);
+}
+
+.genre-search {
+    font-size: 13px;
+    background: #0f0f0f;
+    color: #fff;
+    border: 1px solid var(--main-color);
+}
+
+.genre-search > option:hover {
+    background: #0f0f0f;
+}
+
+.input-search::placeholder {
+    color: #fff;
+}
+
+.input-search:focus {
+    border: none;
+    outline: none;
+    border: 1px solid var(--main-color);
+}
+
+.btn-search {
+    background: var(--main-color);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+
+/* End All Movies */
+
+
+
+/* Start Detail Movies */
+
+.info-top,
+.title-movies {
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.trailer-movie {
+    width: 680px;
+}
+
+.trailer-movie .trailer {
+    width: 100%;
+    height: 340px;
+}
+
+.title-movies h1 {
+    color: var(--main-color);
+}
+
+.img-cover {
+    width: 250px;
+}
+
+.img-cover img {
+    width: 100%;
+    height: 340px;
+}
+
+.genre {
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 2px solid var(--main-color);
+}
+
+.info-movie {
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -6rem;
+}
+
+.line-details {
+    color: var(--main-color) !important;
+    border: 1px solid var(--main-color);
+}
+
+.left-info {
+    width: 500px;
+}
+
+.card-info-body {
+    background-color: var(--main-color);
+}
+
+.details {
+    border-left: 5px solid var(--text-color);
+}
+
+
+
+/* End Detail Movies */
+
+
+/* Start Footer */
+.footer {
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.social .bx {
+    background-color: var(--bg-color) !important;
+    font: 2rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 2px solid rgb(2, 3, 7, 0.4);
+    color: var(--main-color) !important;
+    padding: 2px;
+    transition: 0.1s all linear;
+    -webkit-transition: 0.1s all linear;
+    -moz-transition: 0.1s all linear;
+    -ms-transition: 0.1s all linear;
+    -o-transition: 0.1s all linear;
+}
+
+.social .bx:hover {
+    color: var(--bg-color) !important;
+    background-color: var(--main-color) !important;
+}
+
+.copyright {
+    padding: 20px;
+    text-align: center;
+
+}
