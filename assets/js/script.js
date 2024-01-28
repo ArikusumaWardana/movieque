@@ -125,6 +125,7 @@ async function getPopularMovies() {
 getPopularMovies();
 
 
+// Fungsi untuk menampilkan Upcoming Movies
 async function getUpcomingMovies() {
   const response = await fetch(API_URL + "/movie/upcoming?api_key=" + API_KEY);
   const data = await response.json();
@@ -154,3 +155,46 @@ async function getUpcomingMovies() {
 
 // Memanggil fungsi getUpcomingMovies
 getUpcomingMovies();
+
+
+const AllMoviesContainer = document.getElementById('all-movies-container'); 
+const loadMoreBtn = document.getElementById('load-more-btn');
+let currentPage = 1;
+
+// Fungsi untuk menampilkan seluruh movie
+async function getAllMovies(page) {
+  
+  const response = await fetch(API_URL + "/movie/popular?api_key=" + API_KEY + "&page=" + page);
+  const data = await response.json();
+  const allMovies = data.results;
+
+  const allMoviesId = document.getElementById('allMovies');
+  allMoviesId.innerHTML = '';
+  
+  allMovies.forEach(movie => {
+    const {id, title, poster_path, release_date, vote_average} = movie;
+    const allMoviesEl = document.createElement('div');
+    allMoviesEl.classList.add('card-main');
+    allMoviesEl.innerHTML = `
+      <a href="" class="link-movies">
+        <div class="card-img new-img">
+            <img src="${IMG_URL + poster_path}" alt="${title}">
+        </div>
+        <h3>${title}</h3>
+        <span>${release_date}</span>
+      </a>
+    `;
+
+    allMoviesId.appendChild(allMoviesEl);
+
+  })
+
+  loadMoreBtn.addEventListener('click', () => {
+    currentPage++;
+    getAllMovies(currentPage);
+    console.log(currentPage);
+  });
+}
+
+// Memanggil Fungsi getAll Movies
+getAllMovies(currentPage);
