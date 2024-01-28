@@ -118,7 +118,7 @@ header.bg-nav {
 }
 
 .navbar-main a:hover::after, 
-.navbar-main .home-active::after,
+.navbar-main .nav_active::after,
 .navbar-main a:focus::after {
     width: 100%;
 }
@@ -195,12 +195,32 @@ header.bg-nav {
     color: var(--main-color) !important;
 }
 
-.btn-logout {
-    background-color: transparent !important;
-    border: none;
+.search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-form input {
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.search-form button {
+    position: absolute;
+    right: 0;
+    top: 1;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: transparent;
     outline: none;
-    font-size: 16px;
-    text-align: left;
+    border: none;
+    margin-right: 15px;
+    margin-top: 4px;
+}
+
+.search-form button i {
+    color: var(--main-color);
 }
 
 /* End Navbar */
@@ -304,7 +324,7 @@ section {
 
 .heading-new,
 .heading-popular,
-.heading-allmovies,
+.heading-all-movies,
 .line {
     font-weight: 500;
     font-size: 1.2rem;
@@ -317,7 +337,7 @@ section {
 
 .new-container,
 .popular-container,
-.allmovies-container {
+.all-movies-container {
     max-width: 968px;
     margin-left: auto;
     margin-right: auto;
