@@ -4,20 +4,6 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('bg-nav', window.scrollY > 0 );
 });
 
-// Swiper Carousel
-var swiper = new Swiper(".jumbotron", {
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-});
-
 
 // Swiper Popular
 var swiper = new Swiper(".popular-container", {
@@ -92,6 +78,20 @@ async function getTopRatedMovies() {
 // Memanggil Fungsi getTopRatedMovies
 getTopRatedMovies();
 
+// Swiper Carousel
+var swiper = new Swiper(".jumbotron", {
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
 
 // Fungsi untuk menampilkan Popular Movies
 async function getPopularMovies() {
@@ -107,7 +107,7 @@ async function getPopularMovies() {
     const popularEl = document.createElement('div');
     popularEl.classList.add('card-main', 'swiper-slide');
     popularEl.innerHTML = `
-      <a href="" class="link-movies">
+      <a href="detail.html?id=${id}" class="link-movies">
           <div class="card-img">
               <img src="${IMG_URL + poster_path}" alt="${title}">
           </div>
@@ -189,12 +189,49 @@ async function getAllMovies(page) {
 
   })
 
+}
   loadMoreBtn.addEventListener('click', () => {
     currentPage++;
     getAllMovies(currentPage);
     console.log(currentPage);
   });
-}
 
 // Memanggil Fungsi getAll Movies
 getAllMovies(currentPage);
+
+
+// Fungsi search untuk mencari movie yang dicari
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+const searchResult = document.getElementById('allMovies');
+
+async function searchMovies(query) {
+  
+  const response = await fetch(API_URL + "/search/movie?api_key=" + API_KEY + "&query=" + encodeURIComponent(query));
+  const data = await response.json();
+  return data.results;
+
+}
+
+async function handleSearch(event) {
+  event.preventDefault();
+  const query = searchInput.value.trim();
+
+  if(query !== '') {
+    const movies = await searchMovies(query);
+
+  }
+
+}
+
+function displaySearchResult(movies) {
+  searchResult.innerHTML = '';
+
+  if (movies.length > 0) {
+    movies.forEach(movie => {
+      const {id, title, poster_path, release_date, vote_average} = movie;
+      const searchEl = document.createElement('div');
+      searchEl.classList.add('card-main');
+    })
+  }
+}
