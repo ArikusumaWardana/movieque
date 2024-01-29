@@ -60,6 +60,13 @@ async function getDetailMovies(id) {
                                 ${data.overview}
                             </p>
                         </div>
+                        <div class="production-companies">
+                            ${data.production_companies.map(production => `
+                                <div class="production-img bg-light">
+                                    <img  src="${IMG_URL + production.logo_path}" alt="${production.name}" title="${production.name}">
+                                </div>
+                            `).join('')}
+                        </div>
                     </div>
                 </div>
             </div>
