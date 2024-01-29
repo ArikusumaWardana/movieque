@@ -475,6 +475,33 @@ section {
     width: 600px;
 }
 
+.production-companies {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.production-companies .production-img {
+    width: 100px;
+    height: 40px;
+    padding: 8px 18px;
+    margin: 0 5px 7px 5px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    text-align: center;
+}
+
+.production-companies .production-img img {
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+}
+
 
 /* Review */
 .review,
