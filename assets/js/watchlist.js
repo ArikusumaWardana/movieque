@@ -47,7 +47,7 @@ function displayWatchlist() {
     } else {
         watchlistContainer.innerHTML = `
             <div class="empty-watchlist">
-                <h1>Watchlist list is empty</h1>
+                <h1>Your Watchlist is empty</h1>
             </div>
         `;
     }
