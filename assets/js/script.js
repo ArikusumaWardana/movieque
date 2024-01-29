@@ -1,48 +1,9 @@
-// Scroll Y Navbar  
-let header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('bg-nav', window.scrollY > 0 );
-});
-
-
-// Swiper Popular
-var swiper = new Swiper(".popular-container", {
-  spaceBetween: 20,
-  loop:true,
-  autoplay: {
-    delay:3000,
-    disableOnInteraction:false,
-  },
-  centeredSlides:true,
-  breakpoints: {
-    0: {
-      slidesPerView: 2,
-    },
-    568: {
-      slidesPerView: 3,
-    },
-    768:  {
-      slidesPerView: 4,
-    },
-    968: {
-      slidesPerView:5
-    },
-  },
-});
-
-
-function popup() {
-  const dropdown = document.querySelector('#dropdown-main')
-  this.addEventListener('click', function() {
-    dropdown.classList.toggle('dropdown-none')
-  })
-}
-
 // Variable yang berisi link API dan API KEY
 const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = "95ad9b662a7ad6aff36991bdfe9270f5";
 const BACKDROP_URL = "https://image.tmdb.org/t/p/original";
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
+let queryParams = new URLSearchParams(window.location.search);
 
 
 // Fungsi untuk menampilkan Top Rated Movies 
@@ -63,9 +24,9 @@ async function getTopRatedMovies() {
     topRatedEl.innerHTML = `
         <img src="${BACKDROP_URL + backdrop_path}" alt="${title}">
         <div class="swiper-text">
-            <span>${vote_average}</span>
+            <span>${vote_average} <i class='bx bxs-star' style='color:#fffa00'  ></i></span>
             <h1>${title}</h1>
-            <a href="#" class="btn-main">See Detail</a>
+            <a href="detail-movies.html?movie_id=${id}" class="btn-main">See Detail</a>
         </div>
     `;
 
@@ -78,19 +39,6 @@ async function getTopRatedMovies() {
 // Memanggil Fungsi getTopRatedMovies
 getTopRatedMovies();
 
-// Swiper Carousel
-var swiper = new Swiper(".jumbotron", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
 
 
 // Fungsi untuk menampilkan Popular Movies
@@ -107,12 +55,15 @@ async function getPopularMovies() {
     const popularEl = document.createElement('div');
     popularEl.classList.add('card-main', 'swiper-slide');
     popularEl.innerHTML = `
-      <a href="detail.html?id=${id}" class="link-movies">
+      <a href="detail-movies.html?movie_id=${id}" class="link-movies">
           <div class="card-img">
-              <img src="${IMG_URL + poster_path}" alt="${title}">
+              <img src="${IMG_URL + poster_path}" alt="${title}" title="${title}">
           </div>
-          <h3>${title}</h3>
-          <span>${release_date}</span>
+            <h3 class="d-block text-truncate" style="max-width: 184px;">${title}</h3>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>${release_date}</span>
+            <span>${vote_average} <i class='bx bxs-star' style='color:#fffa00'  ></i></span>
+          </div>
       </a>
     `;
 
@@ -139,12 +90,15 @@ async function getUpcomingMovies() {
     const upcomingEl = document.createElement('div');
     upcomingEl.classList.add('card-main');
     upcomingEl.innerHTML = `
-      <a href="" class="link-movies">
+      <a href="detail-movies.html?movie_id=${id}" class="link-movies">
         <div class="card-img new-img">
-            <img src="${IMG_URL + poster_path}" alt="${title}">
+            <img src="${IMG_URL + poster_path}" alt="${title}" title="${title}">
         </div>
-        <h3>${title}</h3>
-        <span>${release_date}</span>
+        <h3 class="d-block text-truncate" style="max-width: 184px;">${title}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <span>${release_date}</span>
+          <span>${vote_average} <i class='bx bxs-star' style='color:#fffa00'  ></i></span>
+        </div>
       </a>
     `;
 
@@ -156,82 +110,3 @@ async function getUpcomingMovies() {
 // Memanggil fungsi getUpcomingMovies
 getUpcomingMovies();
 
-
-const AllMoviesContainer = document.getElementById('all-movies-container'); 
-const loadMoreBtn = document.getElementById('load-more-btn');
-let currentPage = 1;
-
-// Fungsi untuk menampilkan seluruh movie
-async function getAllMovies(page) {
-  
-  const response = await fetch(API_URL + "/movie/popular?api_key=" + API_KEY + "&page=" + page);
-  const data = await response.json();
-  const allMovies = data.results;
-
-  const allMoviesId = document.getElementById('allMovies');
-  allMoviesId.innerHTML = '';
-  
-  allMovies.forEach(movie => {
-    const {id, title, poster_path, release_date, vote_average} = movie;
-    const allMoviesEl = document.createElement('div');
-    allMoviesEl.classList.add('card-main');
-    allMoviesEl.innerHTML = `
-      <a href="" class="link-movies">
-        <div class="card-img new-img">
-            <img src="${IMG_URL + poster_path}" alt="${title}">
-        </div>
-        <h3>${title}</h3>
-        <span>${release_date}</span>
-      </a>
-    `;
-
-    allMoviesId.appendChild(allMoviesEl);
-
-  })
-
-}
-  loadMoreBtn.addEventListener('click', () => {
-    currentPage++;
-    getAllMovies(currentPage);
-    console.log(currentPage);
-  });
-
-// Memanggil Fungsi getAll Movies
-getAllMovies(currentPage);
-
-
-// Fungsi search untuk mencari movie yang dicari
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-const searchResult = document.getElementById('allMovies');
-
-async function searchMovies(query) {
-  
-  const response = await fetch(API_URL + "/search/movie?api_key=" + API_KEY + "&query=" + encodeURIComponent(query));
-  const data = await response.json();
-  return data.results;
-
-}
-
-async function handleSearch(event) {
-  event.preventDefault();
-  const query = searchInput.value.trim();
-
-  if(query !== '') {
-    const movies = await searchMovies(query);
-
-  }
-
-}
-
-function displaySearchResult(movies) {
-  searchResult.innerHTML = '';
-
-  if (movies.length > 0) {
-    movies.forEach(movie => {
-      const {id, title, poster_path, release_date, vote_average} = movie;
-      const searchEl = document.createElement('div');
-      searchEl.classList.add('card-main');
-    })
-  }
-}
