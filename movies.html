@@ -7,26 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         
+        <!-- Link ke style css -->
         <link rel="stylesheet" href="assets/css/style.css">
 
-         
+         <!-- link ke swiper css -->
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-  
+        <!-- link ke bootstrap css -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
- 
+        <!-- link ke boxicon -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         
 
-        <title>Home | Movieque</title>
+        <title>All Movies | Movieque</title>
         <link rel="icon" type="image/x-icon" href="assets/img/logo/logo.png">
     
 </head>
 <body>
 
+    <!-- Navbar -->
     <header>
-        <a href="" class="logo">
+        <a href="index.html" class="logo">
             <i class='bx bxs-movie'></i> Movieque
         </a>
     
@@ -34,16 +36,16 @@
     
         <ul class="navbar-main mb-0">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#" class="nav_active">Movies</a></li>
-            <li><a href="#cast">Watchlist</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="movies.html" class="nav_active">Movies</a></li>
+            <li><a href="watchlist.html">Watchlist</a></li>
         </ul>
-        <form class="search-form" id="search-form">
-            <input type="text" id="search-input" class="form-control rounded-5" placeholder="Enter movie name">
+        <form class="search-form" id="search-form" action="movies.html" >
+            <input type="text" id="search-input" name="keyword" class="form-control rounded-5" placeholder="Enter movie name">
             <button type="submit"><i class='bx bx-search'></i></button>
         </form>
     </header>
    
+    <!-- Content -->
     <section class="all-movies">
         <h2 class="heading-all-movies">All Movies</h2>
         <div class="all-movies-container" id="allMovies">
@@ -51,10 +53,11 @@
         </div>
     </section>
 
-        <div class="text-center mt-5">
-            <button id="load-more-btn" class="btn-main">Load More</button>
-        </div>
+    <div class="text-center mt-5">
+        <button id="load-more-btn" class="btn-main">Load More</button>
+    </div>
 
+    <!-- Footer -->
     <section class="footer">
         <a href="" class="logo">
             <i class='bx bxs-movie'></i> Movieque
@@ -71,10 +74,16 @@
     </div>
     
 
+    <!-- Link ke swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
-    <script src="assets/js/script.js"></script> 
+    <!-- Link ke movies js -->
+    <script src="assets/js/movies.js"></script> 
     
+    <!-- Link ke view js -->
+    <script src="assets/js/view.js"></script>
+    
+    <!-- Link ke bootstrap js -->
     <script src="assets/js/bootstrap.min.js"></script>
 
 </body> 
