@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        
+        <!-- Link ke style css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+         <!-- link ke swiper css -->
+        <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+        <!-- link ke bootstrap css -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+        <!-- link ke boxicon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        
+
+        <title>Detail Movies | Movieque</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/logo/logo.png">
+    
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <a href="index.html" class="logo">
+            <i class='bx bxs-movie'></i> Movieque
+        </a>
+    
+        <div class="bx bx-menu" id="menu-icon"></div>
+    
+        <ul class="navbar-main mb-0">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="movies.html">Movies</a></li>
+            <li><a href="watchlist.html">Watchlist</a></li>
+        </ul>
+        <form class="search-form" id="search-form" action="movies.html">
+            <input type="text" id="search-input" name="keyword" class="form-control rounded-5" placeholder="Enter movie name">
+            <button type="submit"><i class='bx bx-search'></i></button>
+        </form>
+    </header>
+
+    <!-- Content -->
+    <section id="detailMovies">
+        <div class="body-detail">
+            <!-- Detail Movies -->
+        </div>
+    </section>
+
+    <!-- Review Form -->
+    <section class="review">
+        <div class="review-body w-100">
+            <form class="form-review w-100 text-end">
+                <input type="text" name="" id="inputReviews" class="review-input w-100" placeholder="Add some review...">
+                <button type="button" class="btn-cancel" onclick="clearInput()">Cancel</button>
+                <button type="button" class="btn-submit" onclick="createReviews()">Give Review</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Review Result -->
+    <section class="review-result" id="reviewResult">
+        <div class="review-result-body">
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <a href="" class="logo">
+            <i class='bx bxs-movie'></i> Movieque
+        </a>
+        <div class="social">
+            <a href="#"><i class='bx bxl-facebook' ></i></a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+            <a href="#"><i class='bx bxl-github' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+        </div>
+    </section>
+    <div class="copyright">
+        <p>&#169; Movieque All Right Reserved.</p>
+    </div>
+    
+    
+
+    <!-- Link ke swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Link ke detail movies js -->
+    <script src="assets/js/detail-movies.js"></script> 
+    
+    <!-- Link ke view js -->
+    <script src="assets/js/view.js"></script>
+    
+    <!-- Link ke bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script>
+        getDetailMovies(queryParams.get('movie_id'));
+    </script>
+
+</body>
+</html>
