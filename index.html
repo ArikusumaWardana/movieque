@@ -7,15 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         
+        <!-- Link ke style css -->
         <link rel="stylesheet" href="assets/css/style.css">
 
-         
+         <!-- link ke swiper css -->
         <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-  
+        <!-- link ke bootstrap css -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
- 
+        <!-- link ke boxicon -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         
 
@@ -25,26 +26,26 @@
 </head>
 <body>
 
+    <!-- Navbar -->
     <header>
-        <a href="" class="logo">
+        <a href="index.html" class="logo">
             <i class='bx bxs-movie'></i> Movieque
         </a>
     
         <div class="bx bx-menu" id="menu-icon"></div>
     
         <ul class="navbar-main mb-0">
-            <li><a href="#" class="nav_active">Home</a></li>
+            <li><a href="index.html" class="nav_active">Home</a></li>
             <li><a href="movies.html">Movies</a></li>
-            <li><a href="#cast">Watchlist</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="watchlist.html">Watchlist</a></li>
         </ul>
-        <form class="search-form" id="search-form">
-            <input type="text" id="search-input" class="form-control rounded-5" placeholder="Enter movie name">
+        <form class="search-form" id="search-form" action="movies.html">
+            <input type="text" id="search-input" name="keyword" class="form-control rounded-5" placeholder="Enter movie name">
             <button type="submit"><i class='bx bx-search'></i></button>
         </form>
     </header>
-    <!-- Jumbo -->
 
+    <!-- Jumbotron -->
     <section class="jumbotron-section">
         <div class="jumbotron swiper" id="jumbotron">
             <div class="swiper-wrapper" id="topRated">
@@ -55,8 +56,9 @@
         </div>
     </section>
    
+    <!-- Section Popular -->
     <section class="popular">
-        <h2 class="heading-popular">Top Rated</h2>
+        <h2 class="heading-popular">Popular</h2>
 
         <div class="popular-container swiper">
             <div class="swiper-wrapper" id="popular">
@@ -65,22 +67,24 @@
         </div>
     </section>
    
-    <section class="new-movies" id="popular">
+    <!-- Section upcoming -->
+    <section class="new-movies">
         <h2 class="heading-new">Upcoming Movies</h2>
         <div class="new-container" id="upcomingMovies">
             <!-- Upcoming Movies -->
         </div>
     </section>
 
+    <!-- Footer -->
     <section class="footer">
         <a href="" class="logo">
             <i class='bx bxs-movie'></i> Movieque
         </a>
         <div class="social">
-            <a href="#"><i class='bx bxl-facebook' ></i></a>
-            <a href="#"><i class='bx bxl-instagram' ></i></a>
-            <a href="#"><i class='bx bxl-github' ></i></a>
-            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-github'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
         </div>
     </section>
     <div class="copyright">
@@ -88,10 +92,16 @@
     </div>
     
 
+    <!-- Link ke swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
+    <!-- Link ke script js -->
     <script src="assets/js/script.js"></script> 
     
+    <!-- Link ke view js -->
+    <script src="assets/js/view.js"></script>
+    
+    <!-- Link ke bootstrap js -->
     <script src="assets/js/bootstrap.min.js"></script>
 
 </body> 
