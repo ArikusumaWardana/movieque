@@ -28,7 +28,7 @@ async function getAllMovies(page) {
     allMoviesEl.innerHTML = `
       <a href="detail-movies.html?movie_id=${id}" class="link-movies">
         <div class="card-img new-img">
-            <img src="${IMG_URL + poster_path}" alt="${title}" title="${title}">
+            <img src="${poster_path ? IMG_URL + poster_path : 'assets/img/icon/no-image.png'}" alt="${title}" title="${title}">
         </div>
         <h3 class="d-block text-truncate" style="max-width: 184px;">${title}</h3>
         <div class="d-flex justify-content-between align-items-center">
@@ -76,7 +76,7 @@ async function searchMovies(keyword, page = 1) {
     searchMoviesEl.innerHTML = `
       <a href="detail-movies.html?movie_id=${id}" class="link-movies">
         <div class="card-img new-img">
-            <img src="${IMG_URL + poster_path}" alt="${title}" title="${title}">
+            <img src="${poster_path ? IMG_URL + poster_path : 'assets/img/icon/no-image.png'}" alt="${title}" title="${title}">
         </div>
         <h3 class="d-block text-truncate" style="max-width: 184px;">${title}</h3>
         <div class="d-flex justify-content-between align-items-center">

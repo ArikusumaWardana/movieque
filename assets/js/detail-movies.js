@@ -63,7 +63,7 @@ async function getDetailMovies(id) {
                         <div class="production-companies">
                             ${data.production_companies.map(production => `
                                 <div class="production-img bg-light">
-                                    <img  src="${IMG_URL + production.logo_path}" alt="${production.name}" title="${production.name}">
+                                    <img  src="${production.logo_path ? IMG_URL + production.logo_path : 'assets/img/icon/no-image.png'}" alt="${production.name}" title="${production.name}">
                                 </div>
                             `).join('')}
                         </div>
