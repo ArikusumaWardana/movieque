@@ -21,6 +21,8 @@
 body {
     background: var(--text-color) !important;
     color: var(--bg-color) !important;
+    width: 100%;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -325,6 +327,7 @@ section {
 .heading-new,
 .heading-popular,
 .heading-all-movies,
+.heading-watchlist,
 .line {
     font-weight: 500;
     font-size: 1.2rem;
@@ -337,7 +340,8 @@ section {
 
 .new-container,
 .popular-container,
-.all-movies-container {
+.all-movies-container,
+.watchlist-container {
     max-width: 968px;
     margin-left: auto;
     margin-right: auto;
@@ -346,13 +350,13 @@ section {
     gap: 1rem;
     margin-top: 2rem; 
 }
-/* 
+
 .card-main {
-    width: 181px;
-} */
+    width: 184px;
+}
 
 .card-main .card-img {
-    width: 100%;
+    width: 184px;
     height: 270px;
 }
 
@@ -410,135 +414,213 @@ section {
 }
 /* End Popular And New Movies */
 
-
-/* Start All Movies */
-
-.search-movies {
-    background: #0f0f0f;
-    max-width: 968px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem; 
-}
-
-.input-search {
-    font-size: 13px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    width: 300px;
-    background: #0f0f0f;
-    outline: none;
-    border: 1px solid var(--main-color);
-    color: var(--bg-color);
-}
-
-.genre-search {
-    font-size: 13px;
-    background: #0f0f0f;
-    color: #fff;
-    border: 1px solid var(--main-color);
-}
-
-.genre-search > option:hover {
-    background: #0f0f0f;
-}
-
-.input-search::placeholder {
-    color: #fff;
-}
-
-.input-search:focus {
-    border: none;
-    outline: none;
-    border: 1px solid var(--main-color);
-}
-
-.btn-search {
-    background: var(--main-color);
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-size: 15px;
-}
-
-
-/* End All Movies */
-
-
-
 /* Start Detail Movies */
-
-.info-top,
-.title-movies {
-    max-width: 968px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
-}
-
-.trailer-movie {
-    width: 680px;
-}
-
-.trailer-movie .trailer {
+.backdrop-detail {
+    position: relative;
     width: 100%;
-    height: 340px;
+    margin-top: -72px;
 }
 
-.title-movies h1 {
-    color: var(--main-color);
+.backdrop-detail img {
+    width: 100%;
+    height: 380px;
+    filter: brightness(40%);
+    -webkit-filter: brightness(40%);
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
 }
 
-.img-cover {
+.container-detail {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    z-index: 1;
+}
+.detail-body {
+    position: relative;
+    width: 100%;
+}
+
+.top-detail {
+    margin-top: -170px;
+}
+
+.left-detail {
+    position: relative;
     width: 250px;
-}
-
-.img-cover img {
-    width: 100%;
     height: 340px;
+    z-index: 2;
 }
 
-.genre {
-    font-size: 18px;
-    font-weight: bold;
-    border-left: 2px solid var(--main-color);
+.left-detail img {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-.info-movie {
-    max-width: 968px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -6rem;
+.btn-watchlist button {
+    width: 100%;
 }
 
-.line-details {
-    color: var(--main-color) !important;
-    border: 1px solid var(--main-color);
+.btn-watchlist button span {
+    font-size: 14px;
 }
 
-.left-info {
-    width: 500px;
+.rating-duration-date {
+    width: 610px;
 }
 
-.card-info-body {
+.detail-desc {
+    width: 600px;
+}
+
+
+/* Review */
+.review,
+.review-result {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.review .review-body form {
+    width: 100%;
+}
+
+.review-input {
+    background-color: transparent;
+    color: white;
+    padding: 6px 3px;
+    border: none;
+    border-bottom: 1px solid var(--main-color) !important;
+}
+
+.form-review button {
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    margin: 8px 1px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    transition: ease-in-out 0.05s;
+    -webkit-transition: ease-in-out 0.05s;
+    -moz-transition: ease-in-out 0.05s;
+    -ms-transition: ease-in-out 0.05s;
+    -o-transition: ease-in-out 0.05s;
+}
+
+.form-review .btn-cancel:hover {
+    background-color: gray;
+}
+
+.form-review .btn-submit{
     background-color: var(--main-color);
 }
 
-.details {
-    border-left: 5px solid var(--text-color);
+.form-review .btn-submit:disabled {
+    background-color: gray;
 }
 
+.review-input:focus {
+    border: none;
+    outline: none;
+}
 
+/* Review Result */
+.reviews-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reviews {
+    width: 800px;
+}
+
+.reviews span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.reviews p {
+    font-size: 13px;
+}
+
+.icon-review {
+    width: 40px;
+}
+
+.icon-review img {
+    width: 100%;
+}
+
+.reviews-body {
+    border-bottom: 0.1px solid rgb(46, 46, 46);
+    margin-bottom: 20px;
+}
+
+.right-section button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: gray;
+    transition: ease-in-out 0.1s;
+    -webkit-transition: ease-in-out 0.1s;
+    -moz-transition: ease-in-out 0.1s;
+    -ms-transition: ease-in-out 0.1s;
+    -o-transition: ease-in-out 0.1s;
+}
+
+.right-section button:hover {
+    color: var(--main-color);
+}
 
 /* End Detail Movies */
 
+
+/* Start Watchlist */
+.btn-remove {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-remove button {
+    background-color: transparent;
+    color: gray;
+    border: none;
+    font-size: 19px;
+}
+
+.btn-remove button:hover {
+    color: var(--main-color);
+}
+
+.watchlist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+
+.empty-watchlist {
+    text-align: center;
+}
+
+.empty-watchlist h1 {
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
 
 /* Start Footer */
 .footer {
