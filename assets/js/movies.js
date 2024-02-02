@@ -42,6 +42,7 @@ async function getAllMovies(page) {
 
   });
 
+  // Melakukan perkondisian yang dimana jika page nilainya sudah sama dengan total page, maka load more button akan dihilangkan 
   if (page == data.total_pages) {
     loadMoreBtn.style.display = "none"
   }
@@ -89,17 +90,17 @@ async function searchMovies(keyword, page = 1) {
     allMoviesId.appendChild(searchMoviesEl);
   });
 
+  // Melakukan perkondisian yang dimana jika page nilainya sudah sama dengan total page, maka load more button akan dihilangkan 
   if (page == data.total_pages) {
     loadMoreBtn.style.display = "none"
   }
 
 }
 
+// 
   if (queryParams.has('keyword') && queryParams.get('keyword') != '') {
     searchMovies(queryParams.get('keyword'));
   }
-
-
 
 
 // Menambah fitur pagination
