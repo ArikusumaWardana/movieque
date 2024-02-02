@@ -149,7 +149,7 @@ function createReviews() {
         reviews.push(reviewsInput.value);
 
         reviewsInput.value = "";
-    
+
         displayReviews();
 
     }
