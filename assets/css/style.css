@@ -427,7 +427,7 @@ section {
     filter: brightness(40%);
     -webkit-filter: brightness(40%);
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     z-index: 0;
 }
 
