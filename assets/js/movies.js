@@ -60,7 +60,6 @@ async function searchMovies(keyword, page = 1) {
     keyword = queryParams.get('keyword')
   }
 
-  console.log(keyword);
   const response = await fetch(API_URL + "/search/movie?api_key=" + API_KEY + "&query=" + keyword + "&page=" + page);
   const data = await response.json();
   const searchedMovies = data.results;
